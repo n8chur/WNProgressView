@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		46658A0C151A9BB90055B777 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46658A0B151A9BB90055B777 /* UIKit.framework */; };
+		46658A0E151A9BB90055B777 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46658A0D151A9BB90055B777 /* Foundation.framework */; };
+		46658A10151A9BB90055B777 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46658A0F151A9BB90055B777 /* CoreGraphics.framework */; };
+		46658A16151A9BB90055B777 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46658A14151A9BB90055B777 /* InfoPlist.strings */; };
+		46658A18151A9BB90055B777 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A17151A9BB90055B777 /* main.m */; };
+		46658A1C151A9BB90055B777 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A1B151A9BB90055B777 /* AppDelegate.m */; };
+		46658A1F151A9BB90055B777 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A1E151A9BB90055B777 /* ViewController.m */; };
+		46658A22151A9BB90055B777 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46658A20151A9BB90055B777 /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		46658A07151A9BB90055B777 /* BarberPole.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarberPole.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		46658A0B151A9BB90055B777 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		46658A0D151A9BB90055B777 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		46658A0F151A9BB90055B777 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		46658A13151A9BB90055B777 /* BarberPole-Info.plist */ = {isa = PBXFileReference; path = "BarberPole-Info.plist"; sourceTree = "<group>"; };
+		46658A15151A9BB90055B777 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		46658A17151A9BB90055B777 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		46658A19151A9BB90055B777 /* BarberPole-Prefix.pch */ = {isa = PBXFileReference; path = "BarberPole-Prefix.pch"; sourceTree = "<group>"; };
+		46658A1A151A9BB90055B777 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		46658A1B151A9BB90055B777 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		46658A1D151A9BB90055B777 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		46658A1E151A9BB90055B777 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		46658A21151A9BB90055B777 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46658A04151A9BB90055B777 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46658A0C151A9BB90055B777 /* UIKit.framework in Frameworks */,
+				46658A0E151A9BB90055B777 /* Foundation.framework in Frameworks */,
+				46658A10151A9BB90055B777 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		466589FC151A9BB90055B777 = {
+			isa = PBXGroup;
+			children = (
+				46658A11151A9BB90055B777 /* BarberPole */,
+				46658A0A151A9BB90055B777 /* Frameworks */,
+				46658A08151A9BB90055B777 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		46658A08151A9BB90055B777 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46658A07151A9BB90055B777 /* BarberPole.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		46658A0A151A9BB90055B777 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				46658A0B151A9BB90055B777 /* UIKit.framework */,
+				46658A0D151A9BB90055B777 /* Foundation.framework */,
+				46658A0F151A9BB90055B777 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		46658A11151A9BB90055B777 /* BarberPole */ = {
+			isa = PBXGroup;
+			children = (
+				46658A1A151A9BB90055B777 /* AppDelegate.h */,
+				46658A1B151A9BB90055B777 /* AppDelegate.m */,
+				46658A1D151A9BB90055B777 /* ViewController.h */,
+				46658A1E151A9BB90055B777 /* ViewController.m */,
+				46658A20151A9BB90055B777 /* ViewController.xib */,
+				46658A12151A9BB90055B777 /* Supporting Files */,
+			);
+			path = BarberPole;
+			sourceTree = "<group>";
+		};
+		46658A12151A9BB90055B777 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				46658A13151A9BB90055B777 /* BarberPole-Info.plist */,
+				46658A14151A9BB90055B777 /* InfoPlist.strings */,
+				46658A17151A9BB90055B777 /* main.m */,
+				46658A19151A9BB90055B777 /* BarberPole-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		46658A06151A9BB90055B777 /* BarberPole */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46658A25151A9BB90055B777 /* Build configuration list for PBXNativeTarget "BarberPole" */;
+			buildPhases = (
+				46658A03151A9BB90055B777 /* Sources */,
+				46658A04151A9BB90055B777 /* Frameworks */,
+				46658A05151A9BB90055B777 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BarberPole;
+			productName = BarberPole;
+			productReference = 46658A07151A9BB90055B777 /* BarberPole.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		466589FE151A9BB90055B777 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = n8chur;
+			};
+			buildConfigurationList = 46658A01151A9BB90055B777 /* Build configuration list for PBXProject "BarberPole" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 466589FC151A9BB90055B777;
+			productRefGroup = 46658A08151A9BB90055B777 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				46658A06151A9BB90055B777 /* BarberPole */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46658A05151A9BB90055B777 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46658A16151A9BB90055B777 /* InfoPlist.strings in Resources */,
+				46658A22151A9BB90055B777 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46658A03151A9BB90055B777 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46658A18151A9BB90055B777 /* main.m in Sources */,
+				46658A1C151A9BB90055B777 /* AppDelegate.m in Sources */,
+				46658A1F151A9BB90055B777 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		46658A14151A9BB90055B777 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46658A15151A9BB90055B777 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		46658A20151A9BB90055B777 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46658A21151A9BB90055B777 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		46658A23151A9BB90055B777 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		46658A24151A9BB90055B777 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		46658A26151A9BB90055B777 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BarberPole/BarberPole-Prefix.pch";
+				INFOPLIST_FILE = "BarberPole/BarberPole-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		46658A27151A9BB90055B777 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BarberPole/BarberPole-Prefix.pch";
+				INFOPLIST_FILE = "BarberPole/BarberPole-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		46658A01151A9BB90055B777 /* Build configuration list for PBXProject "BarberPole" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46658A23151A9BB90055B777 /* Debug */,
+				46658A24151A9BB90055B777 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46658A25151A9BB90055B777 /* Build configuration list for PBXNativeTarget "BarberPole" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46658A26151A9BB90055B777 /* Debug */,
+				46658A27151A9BB90055B777 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 466589FE151A9BB90055B777 /* Project object */;
+}
