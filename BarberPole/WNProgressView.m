@@ -64,9 +64,9 @@
     barberStrip.frame = CGRectMake(0,0,self.barberPoleStripWidth * 2,frame.size.height);
     
     CGMutablePathRef stripPath = CGPathCreateMutable();
-    CGPathMoveToPoint(stripPath, nil, 0, barberStrip.frame.size.height);
+    CGPathMoveToPoint(stripPath, nil, 0, 0);
     CGPathAddLineToPoint(stripPath, nil, self.barberPoleStripWidth, 0);
-    CGPathAddLineToPoint(stripPath, nil, self.barberPoleStripWidth * 2, 0);
+    CGPathAddLineToPoint(stripPath, nil, self.barberPoleStripWidth * 2, barberStrip.frame.size.height);
     CGPathAddLineToPoint(stripPath, nil, self.barberPoleStripWidth, barberStrip.frame.size.height);
     
     CAShapeLayer* stripShape = [CAShapeLayer layer];
@@ -109,7 +109,7 @@
 
 - (void)setupDefaultValues
 {
-    self.barberPoleStripWidth = 10.0f;
+    self.barberPoleStripWidth = self.frame.size.height;
 }
 
 - (id)initWithFrame:(CGRect)frame

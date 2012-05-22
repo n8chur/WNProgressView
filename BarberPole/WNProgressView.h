@@ -14,7 +14,7 @@
  * Sets the width each strip in the barber pole effect.
  *
  * The distance between each bar is equal to the width of the barberPoleStripWidth.
- * Default value is 10.0f.
+ * Default value is frame.size.height.
  */
 @property (nonatomic) CGFloat barberPoleStripWidth;
 
