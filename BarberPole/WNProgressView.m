@@ -109,7 +109,7 @@
 
 - (void)setupDefaultValues
 {
-    self.barberPoleStripWidth = self.frame.size.height;
+    self.barberPoleStripWidth = self.frame.size.height * 1.5f;
 }
 
 - (id)initWithFrame:(CGRect)frame
