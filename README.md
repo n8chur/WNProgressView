@@ -12,6 +12,8 @@ WNProgressView is ARC compatible and supports iOS4.3+ (and possibly earlier).
 2. In your xib or storyboard set the class of the desired UIProgressView to WNProgressView.
 3. Done!
 
+## Notes ##
+
 WNProgressView can also be instantiated programmatically.
 
 Supports both UIProgressView styles (Bar and Default).
