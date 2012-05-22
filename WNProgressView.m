@@ -46,9 +46,10 @@
         self.barberPoleView.frame = CGRectMake(0, frame.size.height/2 - self.progressViewInnerHeight/2, frame.size.width, self.progressViewInnerHeight);
         barColor = [UIColor colorWithRed:30.0f/256.0f green:104.0f/256.0f blue:209.0f/256.0f alpha:1];
     }
-    
-    if ( self.progressTintColor ) {
-        barColor = self.progressTintColor;
+    if ( [self respondsToSelector:@selector(progressTintColor)] ) {
+        if ( self.progressTintColor ) {
+            barColor = self.progressTintColor;
+        }
     }
     
     CALayer* barberPoleLayer = [CALayer layer];
