@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
+/*
+ * When progress == 0 the barber pole effect will become active.
+ * WNProgressView inherits the barber pole strip color from the progressTintColor property if set.
+ * This class supports both styles of UIProgessView (Bar and Default).
+ * To use with Interface Builder, just set your UIProgressView's class to WNProgressView and you're all set!
+ */
 @interface WNProgressView : UIProgressView
 
 /*

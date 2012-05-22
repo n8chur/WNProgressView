@@ -12,17 +12,17 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet WNProgressView *barProgressView;
-@property (weak, nonatomic) IBOutlet WNProgressView *defaultProgressView;
-@property (weak, nonatomic) IBOutlet WNProgressView *tintedDefaultProgressView;
-@property (weak, nonatomic) IBOutlet WNProgressView *tintedBarProgressView;
+@property (unsafe_unretained, nonatomic) IBOutlet WNProgressView *barProgressView;
+@property (unsafe_unretained, nonatomic) IBOutlet WNProgressView *defaultProgressView;
+@property (unsafe_unretained, nonatomic) IBOutlet WNProgressView *tintedDefaultProgressView;
+@property (unsafe_unretained, nonatomic) IBOutlet WNProgressView *tintedBarProgressView;
 
 
 
 - (IBAction)progressSliderValueChanged:(UISlider*)slider;
 - (IBAction)barberPoleStripWidthSliderValueChanged:(UISlider*)slider;
 
-@property (weak, nonatomic) IBOutlet UILabel *progressAmountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *barberPoleStripWidthAmountLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *progressAmountLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *barberPoleStripWidthAmountLabel;
 
 @end
