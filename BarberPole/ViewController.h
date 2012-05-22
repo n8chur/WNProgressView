@@ -16,7 +16,13 @@
 @property (weak, nonatomic) IBOutlet WNProgressView *defaultProgressView;
 @property (weak, nonatomic) IBOutlet WNProgressView *tintedDefaultProgressView;
 @property (weak, nonatomic) IBOutlet WNProgressView *tintedBarProgressView;
-- (IBAction)sliderValueChanged:(UISlider*)slider;
 
+
+
+- (IBAction)progressSliderValueChanged:(UISlider*)slider;
+- (IBAction)barberPoleStripWidthSliderValueChanged:(UISlider*)slider;
+
+@property (weak, nonatomic) IBOutlet UILabel *progressAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *barberPoleStripWidthAmountLabel;
 
 @end

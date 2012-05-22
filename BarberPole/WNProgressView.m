@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 n8chur. All rights reserved.
 //
 
-#define kBarWidth 10.0f
-
 #import "WNProgressView.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -24,6 +22,7 @@
 
 @implementation WNProgressView
 
+@synthesize barberPoleStripWidth = _barberPoleStripWidth;
 @synthesize progressViewInnerHeight = _progressViewInnerHeight;
 @synthesize barberPoleView = _barberPoleView;
 @synthesize replicatorLayer = _replicatorLayer;
@@ -62,13 +61,13 @@
     barberPoleLayer.mask = barberPoleMaskLayer;
     
     CALayer* barberStrip = [CALayer layer];
-    barberStrip.frame = CGRectMake(0,0,kBarWidth * 2,frame.size.height);
+    barberStrip.frame = CGRectMake(0,0,self.barberPoleStripWidth * 2,frame.size.height);
     
     CGMutablePathRef stripPath = CGPathCreateMutable();
     CGPathMoveToPoint(stripPath, nil, 0, barberStrip.frame.size.height);
-    CGPathAddLineToPoint(stripPath, nil, kBarWidth, 0);
-    CGPathAddLineToPoint(stripPath, nil, kBarWidth * 2, 0);
-    CGPathAddLineToPoint(stripPath, nil, kBarWidth, barberStrip.frame.size.height);
+    CGPathAddLineToPoint(stripPath, nil, self.barberPoleStripWidth, 0);
+    CGPathAddLineToPoint(stripPath, nil, self.barberPoleStripWidth * 2, 0);
+    CGPathAddLineToPoint(stripPath, nil, self.barberPoleStripWidth, barberStrip.frame.size.height);
     
     CAShapeLayer* stripShape = [CAShapeLayer layer];
     stripShape.fillColor = barColor.CGColor;
@@ -108,10 +107,16 @@
     [self setupWithFrame:self.frame];
 }
 
+- (void)setupDefaultValues
+{
+    self.barberPoleStripWidth = 10.0f;
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setupDefaultValues];
         [self setupWithFrame:frame];
     }
     return self;
@@ -121,6 +126,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        [self setupDefaultValues];
         [self setupWithFrame:self.frame];
     }
     return self;
@@ -150,7 +156,7 @@
     theAnimation.duration=0.5f;
     theAnimation.repeatCount=HUGE_VALF;
     theAnimation.autoreverses=NO;
-    theAnimation.fromValue=[NSNumber numberWithFloat:-kBarWidth*2];
+    theAnimation.fromValue=[NSNumber numberWithFloat:-self.barberPoleStripWidth*2];
     theAnimation.toValue=[NSNumber numberWithFloat:0.0];
     [self.replicatorLayer addAnimation:theAnimation forKey:@"animatePosition"];
 }
@@ -160,6 +166,12 @@
     self.barberPoleView.hidden = YES;
     
     [self.replicatorLayer removeAllAnimations];
+}
+
+- (void)setBarberPoleStripWidth:(CGFloat)barberPoleStripWidth
+{
+    _barberPoleStripWidth = barberPoleStripWidth;
+    [self layoutSubviews];
 }
 
 @end
