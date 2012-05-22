@@ -12,7 +12,11 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet WNProgressView *progressView;
+@property (weak, nonatomic) IBOutlet WNProgressView *barProgressView;
+@property (weak, nonatomic) IBOutlet WNProgressView *defaultProgressView;
+@property (weak, nonatomic) IBOutlet WNProgressView *tintedDefaultProgressView;
+@property (weak, nonatomic) IBOutlet WNProgressView *tintedBarProgressView;
 - (IBAction)sliderValueChanged:(UISlider*)slider;
+
 
 @end

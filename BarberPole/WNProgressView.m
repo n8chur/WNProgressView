@@ -18,7 +18,6 @@
 
 @property (nonatomic) CGFloat progressViewInnerHeight;
 @property (nonatomic, strong) UIView* barberPoleView;
-@property (nonatomic, strong) CALayer* barberPoleLayer;
 @property (nonatomic, strong) CAReplicatorLayer* replicatorLayer;
 
 @end
@@ -27,46 +26,71 @@
 
 @synthesize progressViewInnerHeight = _progressViewInnerHeight;
 @synthesize barberPoleView = _barberPoleView;
-@synthesize barberPoleLayer = _barberPoleLayer;
 @synthesize replicatorLayer = _replicatorLayer;
 
 - (void)setupWithFrame:(CGRect)frame
 {
+    [self.barberPoleView removeFromSuperview];
+    
     self.barberPoleView = [[UIView alloc] init];
+    self.barberPoleView.autoresizesSubviews = YES;
+    
+    UIColor* barColor = nil;
+    
     if ( self.progressViewStyle == UIProgressViewStyleBar ) {
-        self.progressViewInnerHeight = 10;
-        self.barberPoleView.frame = CGRectMake(0, frame.size.height/2 - self.progressViewInnerHeight/2 - 0.5f, frame.size.width, self.progressViewInnerHeight);
+        self.progressViewInnerHeight = 11;
+        self.barberPoleView.frame = CGRectMake(0.25f, frame.size.height/2 - self.progressViewInnerHeight/2 + 0.25f, frame.size.width - 0.25f * 4, self.progressViewInnerHeight - 2.5f);
+        barColor = [UIColor whiteColor];
     }
     else {
         self.progressViewInnerHeight = 9;
-        self.barberPoleView.frame = CGRectMake(0, frame.size.height/2 - self.progressViewInnerHeight/2, frame.size.width, self.progressViewInnerHeight - 0.5f);
+        self.barberPoleView.frame = CGRectMake(0, frame.size.height/2 - self.progressViewInnerHeight/2, frame.size.width, self.progressViewInnerHeight);
+        barColor = [UIColor colorWithRed:30.0f/256.0f green:104.0f/256.0f blue:209.0f/256.0f alpha:1];
     }
-    self.barberPoleLayer = [CALayer layer];
-    self.barberPoleLayer.frame = self.barberPoleView.frame;
+    
+    if ( self.progressTintColor ) {
+        barColor = self.progressTintColor;
+    }
+    
+    CALayer* barberPoleLayer = [CALayer layer];
+    barberPoleLayer.frame = self.barberPoleView.frame;
     CALayer* barberPoleMaskLayer = [CALayer layer];
     barberPoleMaskLayer.frame = self.barberPoleView.frame;
     barberPoleMaskLayer.cornerRadius = self.progressViewInnerHeight / 2;
     // mask doesnt work without a solid background
     barberPoleMaskLayer.backgroundColor = [UIColor whiteColor].CGColor;
-    self.barberPoleLayer.mask = barberPoleMaskLayer;
+    barberPoleLayer.mask = barberPoleMaskLayer;
     
-    CALayer* barberBar = [CALayer layer];
-    barberBar.frame = CGRectMake(0,0,kBarWidth,frame.size.height);
-    barberBar.backgroundColor = [UIColor whiteColor].CGColor;
+    CALayer* barberStrip = [CALayer layer];
+    barberStrip.frame = CGRectMake(0,0,kBarWidth * 2,frame.size.height);
+    
+    CGMutablePathRef stripPath = CGPathCreateMutable();
+    CGPathMoveToPoint(stripPath, nil, 0, barberStrip.frame.size.height);
+    CGPathAddLineToPoint(stripPath, nil, kBarWidth, 0);
+    CGPathAddLineToPoint(stripPath, nil, kBarWidth * 2, 0);
+    CGPathAddLineToPoint(stripPath, nil, kBarWidth, barberStrip.frame.size.height);
+    
+    CAShapeLayer* stripShape = [CAShapeLayer layer];
+    stripShape.fillColor = barColor.CGColor;
+    stripShape.path = stripPath;
+    
+    [barberStrip addSublayer:stripShape];
     
     self.replicatorLayer= [CAReplicatorLayer layer];
-    self.replicatorLayer.bounds = self.barberPoleLayer.bounds;
-    self.replicatorLayer.position = CGPointMake(- barberBar.frame.size.width * 4, self.barberPoleLayer.frame.size.height / 2);
-    self.replicatorLayer.instanceCount = (NSInteger)roundf(frame.size.width / barberBar.frame.size.width) + 1;
+    self.replicatorLayer.bounds = barberPoleLayer.bounds;
+    self.replicatorLayer.position = CGPointMake(- barberStrip.frame.size.width * 4, barberPoleLayer.frame.size.height / 2);
+    self.replicatorLayer.instanceCount = (NSInteger)roundf(frame.size.width / barberStrip.frame.size.width * 2) + 1;
     
-    CATransform3D finalTransform = CATransform3DMakeTranslation(barberBar.frame.size.width * 2, 0, 0);
+    CATransform3D finalTransform = CATransform3DMakeTranslation(barberStrip.frame.size.width, 0, 0);
     [self.replicatorLayer setInstanceTransform:finalTransform];
     
-    [self.replicatorLayer addSublayer:barberBar];
+    [self.replicatorLayer addSublayer:barberStrip];
     
-    [self.barberPoleLayer addSublayer:self.replicatorLayer];
+    [barberPoleLayer addSublayer:self.replicatorLayer];
     
-    [self.barberPoleView.layer addSublayer:self.barberPoleLayer];
+    [self.barberPoleView.layer addSublayer:barberPoleLayer];
+    
+    self.barberPoleView.alpha = 0.65f;
     
     [self addSubview:self.barberPoleView];
     
@@ -76,6 +100,12 @@
     else {
         [self startBarberPole];
     }
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self setupWithFrame:self.frame];
 }
 
 - (id)initWithFrame:(CGRect)frame
