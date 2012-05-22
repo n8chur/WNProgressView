@@ -7,12 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "WNProgressView.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+@synthesize progressView = _progressView;
 
 - (void)viewDidLoad
 {
@@ -22,8 +24,14 @@
 
 - (void)viewDidUnload
 {
+    [self setProgressView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (IBAction)sliderValueChanged:(UISlider*)slider 
+{
+    self.progressView.progress = slider.value;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

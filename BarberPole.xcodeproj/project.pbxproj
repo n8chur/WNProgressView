@@ -15,6 +15,8 @@
 		46658A1C151A9BB90055B777 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A1B151A9BB90055B777 /* AppDelegate.m */; };
 		46658A1F151A9BB90055B777 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A1E151A9BB90055B777 /* ViewController.m */; };
 		46658A22151A9BB90055B777 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46658A20151A9BB90055B777 /* ViewController.xib */; };
+		46658A2A151A9C1C0055B777 /* WNProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A29151A9C1C0055B777 /* WNProgressView.m */; };
+		46658A2C151AA28E0055B777 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46658A2B151AA28E0055B777 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +24,18 @@
 		46658A0B151A9BB90055B777 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		46658A0D151A9BB90055B777 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		46658A0F151A9BB90055B777 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		46658A13151A9BB90055B777 /* BarberPole-Info.plist */ = {isa = PBXFileReference; path = "BarberPole-Info.plist"; sourceTree = "<group>"; };
+		46658A13151A9BB90055B777 /* BarberPole-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BarberPole-Info.plist"; sourceTree = "<group>"; };
 		46658A15151A9BB90055B777 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		46658A17151A9BB90055B777 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		46658A19151A9BB90055B777 /* BarberPole-Prefix.pch */ = {isa = PBXFileReference; path = "BarberPole-Prefix.pch"; sourceTree = "<group>"; };
-		46658A1A151A9BB90055B777 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		46658A19151A9BB90055B777 /* BarberPole-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BarberPole-Prefix.pch"; sourceTree = "<group>"; };
+		46658A1A151A9BB90055B777 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		46658A1B151A9BB90055B777 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		46658A1D151A9BB90055B777 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		46658A1D151A9BB90055B777 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		46658A1E151A9BB90055B777 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		46658A21151A9BB90055B777 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		46658A28151A9C1C0055B777 /* WNProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WNProgressView.h; sourceTree = "<group>"; };
+		46658A29151A9C1C0055B777 /* WNProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WNProgressView.m; sourceTree = "<group>"; };
+		46658A2B151AA28E0055B777 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46658A2C151AA28E0055B777 /* QuartzCore.framework in Frameworks */,
 				46658A0C151A9BB90055B777 /* UIKit.framework in Frameworks */,
 				46658A0E151A9BB90055B777 /* Foundation.framework in Frameworks */,
 				46658A10151A9BB90055B777 /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +73,7 @@
 		46658A0A151A9BB90055B777 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46658A2B151AA28E0055B777 /* QuartzCore.framework */,
 				46658A0B151A9BB90055B777 /* UIKit.framework */,
 				46658A0D151A9BB90055B777 /* Foundation.framework */,
 				46658A0F151A9BB90055B777 /* CoreGraphics.framework */,
@@ -82,6 +89,8 @@
 				46658A1D151A9BB90055B777 /* ViewController.h */,
 				46658A1E151A9BB90055B777 /* ViewController.m */,
 				46658A20151A9BB90055B777 /* ViewController.xib */,
+				46658A28151A9C1C0055B777 /* WNProgressView.h */,
+				46658A29151A9C1C0055B777 /* WNProgressView.m */,
 				46658A12151A9BB90055B777 /* Supporting Files */,
 			);
 			path = BarberPole;
@@ -164,6 +173,7 @@
 				46658A18151A9BB90055B777 /* main.m in Sources */,
 				46658A1C151A9BB90055B777 /* AppDelegate.m in Sources */,
 				46658A1F151A9BB90055B777 /* ViewController.m in Sources */,
+				46658A2A151A9C1C0055B777 /* WNProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class WNProgressView;
+
 @interface ViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet WNProgressView *progressView;
+- (IBAction)sliderValueChanged:(UISlider*)slider;
 
 @end
