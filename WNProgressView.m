@@ -30,12 +30,12 @@
 - (void)setupWithFrame:(CGRect)frame
 {
     [self.barberPoleView removeFromSuperview];
-    
+
     self.barberPoleView = [[UIView alloc] init];
     self.barberPoleView.autoresizesSubviews = YES;
-    
+
     UIColor* barColor = nil;
-    
+
     if ( self.progressViewStyle == UIProgressViewStyleBar ) {
         self.progressViewInnerHeight = 11;
         self.barberPoleView.frame = CGRectMake(0.25f, frame.size.height/2 - self.progressViewInnerHeight/2 + 0.25f, frame.size.width - 0.25f * 4, self.progressViewInnerHeight - 2.5f);
@@ -51,7 +51,7 @@
             barColor = self.progressTintColor;
         }
     }
-    
+
     CALayer* barberPoleLayer = [CALayer layer];
     barberPoleLayer.frame = self.barberPoleView.frame;
     CALayer* barberPoleMaskLayer = [CALayer layer];
@@ -60,40 +60,41 @@
     // mask doesnt work without a solid background
     barberPoleMaskLayer.backgroundColor = [UIColor whiteColor].CGColor;
     barberPoleLayer.mask = barberPoleMaskLayer;
-    
+
     CALayer* barberStrip = [CALayer layer];
     barberStrip.frame = CGRectMake(0,0,self.barberPoleStripWidth * 2,frame.size.height);
-    
+
     CGMutablePathRef stripPath = CGPathCreateMutable();
     CGPathMoveToPoint(stripPath, nil, 0, 0);
     CGPathAddLineToPoint(stripPath, nil, self.barberPoleStripWidth, 0);
     CGPathAddLineToPoint(stripPath, nil, self.barberPoleStripWidth * 2, barberStrip.frame.size.height);
     CGPathAddLineToPoint(stripPath, nil, self.barberPoleStripWidth, barberStrip.frame.size.height);
-    
+
     CAShapeLayer* stripShape = [CAShapeLayer layer];
     stripShape.fillColor = barColor.CGColor;
     stripShape.path = stripPath;
-    
+
     [barberStrip addSublayer:stripShape];
-    
+    CGPathRelease(stripPath);
+
     self.replicatorLayer= [CAReplicatorLayer layer];
     self.replicatorLayer.bounds = barberPoleLayer.bounds;
     self.replicatorLayer.position = CGPointMake(- barberStrip.frame.size.width * 4, barberPoleLayer.frame.size.height / 2);
     self.replicatorLayer.instanceCount = (NSInteger)roundf(frame.size.width / barberStrip.frame.size.width * 2) + 1;
-    
+
     CATransform3D finalTransform = CATransform3DMakeTranslation(barberStrip.frame.size.width, 0, 0);
     [self.replicatorLayer setInstanceTransform:finalTransform];
-    
+
     [self.replicatorLayer addSublayer:barberStrip];
-    
+
     [barberPoleLayer addSublayer:self.replicatorLayer];
-    
+
     [self.barberPoleView.layer addSublayer:barberPoleLayer];
-    
+
     self.barberPoleView.alpha = 0.65f;
-    
+
     [self addSubview:self.barberPoleView];
-    
+
     if ( self.progress != 0 ) {
         [self stopBarberPole];
     }
@@ -138,7 +139,7 @@
     [super setProgress:progress];
     if ( progress == 0 ) {
         if ( self.barberPoleView.hidden == YES) {
-             [self startBarberPole];
+            [self startBarberPole];
         }
     }
     else {
@@ -151,7 +152,7 @@
 - (void)startBarberPole
 {
     self.barberPoleView.hidden = NO;
-    
+
     CABasicAnimation *theAnimation;
     theAnimation=[CABasicAnimation animationWithKeyPath:@"position.x"];
     theAnimation.duration=0.5f;
@@ -165,7 +166,7 @@
 - (void)stopBarberPole
 {
     self.barberPoleView.hidden = YES;
-    
+
     [self.replicatorLayer removeAllAnimations];
 }
 
