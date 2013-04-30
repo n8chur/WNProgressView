@@ -1,0 +1,10 @@
+.DS_Store
+.git
+.svn
+xcuserdata/
+build/
+*.docset
+Configurations/local_config.h
+docs/
+*.un~
+strings
