@@ -109,16 +109,25 @@
     [self setupWithFrame:self.frame];
 }
 
-- (void)setupDefaultValues
+- (void)setupDefaults
 {
     self.barberPoleStripWidth = self.frame.size.height * 1.5f;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationWillEnterForegroundNotification:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:[UIApplication sharedApplication]];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationDidEnterBackgroundNotification:)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:[UIApplication sharedApplication]];
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setupDefaultValues];
+        [self setupDefaults];
         [self setupWithFrame:frame];
     }
     return self;
@@ -128,7 +137,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self setupDefaultValues];
+        [self setupDefaults];
         [self setupWithFrame:self.frame];
     }
     return self;
@@ -174,6 +183,27 @@
 {
     _barberPoleStripWidth = barberPoleStripWidth;
     [self layoutSubviews];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Application Lifecycle Notifications
+
+- (void)applicationWillEnterForegroundNotification:(NSNotification*)notification
+{
+    if ( self.barberPoleView.hidden == NO ) {
+        [self startBarberPole];
+    }
+}
+
+- (void)applicationDidEnterBackgroundNotification:(NSNotification*)notification
+{
+    if ( self.barberPoleView.hidden == YES ) {
+        [self.replicatorLayer removeAllAnimations];
+    }
 }
 
 @end
