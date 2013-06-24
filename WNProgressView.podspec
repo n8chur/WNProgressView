@@ -6,6 +6,6 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/n8chur/WNProgressView"
   s.author       = { 'Westin Newell' => 'wnewell87@gmail.com' }
   s.source       = { :git => 'https://github.com/n8chur/WNProgressView.git', :tag => '1.0.1' }
-  s.source_files = ''
+  s.source_files = 'WNProgressView.h', 'WNProgressView.m'
   s.platform     = :ios
 end
