@@ -35,8 +35,14 @@
     self.barberPoleView.autoresizesSubviews = YES;
 
     UIColor* barColor = nil;
-
-    if ( self.progressViewStyle == UIProgressViewStyleBar ) {
+    UIColor* defaultBlue = [UIColor colorWithRed:30.0f/256.0f green:104.0f/256.0f blue:209.0f/256.0f alpha:1];
+    
+    if ( [[UIDevice currentDevice].systemVersion floatValue] >= 7.0 ) {
+        self.progressViewInnerHeight = frame.size.height;
+        self.barberPoleView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+        barColor = defaultBlue;
+    }
+    else if ( self.progressViewStyle == UIProgressViewStyleBar ) {
         self.progressViewInnerHeight = 11;
         self.barberPoleView.frame = CGRectMake(0.25f, frame.size.height/2 - self.progressViewInnerHeight/2 + 0.25f, frame.size.width - 0.25f * 4, self.progressViewInnerHeight - 2.5f);
         barColor = [UIColor whiteColor];
@@ -44,7 +50,7 @@
     else {
         self.progressViewInnerHeight = 9;
         self.barberPoleView.frame = CGRectMake(0, frame.size.height/2 - self.progressViewInnerHeight/2, frame.size.width, self.progressViewInnerHeight);
-        barColor = [UIColor colorWithRed:30.0f/256.0f green:104.0f/256.0f blue:209.0f/256.0f alpha:1];
+        barColor = defaultBlue;
     }
     if ( [self respondsToSelector:@selector(progressTintColor)] ) {
         if ( self.progressTintColor ) {
